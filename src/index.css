@@ -57,6 +57,30 @@ h1 {
   position: relative;
   width: 100px;
   height: 100px;
+  padding: 0; 
+}
+
+.carroVermelho {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  right: 6px;
+  background-color: #E50914;
+  border-radius: 6px;
+  z-index: 2; 
+}
+
+.carroVermelho.horizontal.head {
+  right: -6px; 
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.carroVermelho.horizontal.tail {
+  left: -6px; 
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .cell::after {
