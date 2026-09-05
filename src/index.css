@@ -94,3 +94,8 @@ h1 {
 .veiculo:active {
   cursor: grabbing;
 }
+
+.veiculo.selecionado {
+  outline: 3px solid #FFFFFF;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
