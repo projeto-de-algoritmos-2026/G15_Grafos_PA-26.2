@@ -1,17 +1,16 @@
-# Welcome to MkDocs
+# Projeto PA-26.2 Grafos
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+A ideia do projeto é um visualizador/jogo em grid onde o usuário consegue desenhar caminhos e labirintos de forma livre na tela, definindo um ponto inicial e um ponto final. Ao acionar a busca, a aplicação executa o algoritmo para encontrar e destacar a menor rota entre a origem e o destino.
 
-## Commands
+## Protótipo Inicial (Figma)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+![Prototipo 1](./img/figma_prototipo_1.png)
 
-## Project layout
+## Como funciona a dinâmica do jogo:
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+1. **Grid em branco:** O usuário inicia com uma malha vazia para montar o cenário.
+2. **Construção do mapa:** É possível desenhar as paredes/caminhos (em cinza), além de definir a posição de **Início** (quadrado verde) e **Fim** (quadrado vermelho).
+3. **Execução e Resolução:** 
+   * A aplicação processa a estrutura do labirinto e calcula o caminho mais curto.
+   * O menor caminho encontrado é renderizado em destaque (em azul).
+   * A visualização também mostra a ordem/índices dos passos percorridos ao longo do grafo gerado no grid.
