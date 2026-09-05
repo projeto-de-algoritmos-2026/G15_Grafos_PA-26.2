@@ -1,10 +1,10 @@
+## Baseado no docs do meu trabalho de REQ
+
 repo_url: https://github.com/projeto-de-algoritmos-2026/G15_Grafos_PA-26.2
 repo_name: G15_Grafos_PA-26.2
 
-site_url: https://github.com/projeto-de-algoritmos-2026/G15_Grafos_PA-26.2
-site_name: Projeto de gay
-site_description: teste
-site_author: Grupo 15 - 2026.2
+site_url: https://projeto-de-algoritmos-2026.github.io/G15_Grafos_PA-26.2/
+site_name: Grafos_PA-26.2
 
 nav:
   - Home: index.md
@@ -19,18 +19,17 @@ theme:
     - search.highlight
   palette:
     - scheme: default
-      primary: deep orange
-      accent: orange
+      primary: green
+      accent: green
       toggle:
         icon: material/weather-night
         name: Modo Noturno
     - scheme: slate
-      primary: deep orange
-      accent: orange
+      primary: green
+      accent: green
       toggle:
         icon: material/weather-sunny
         name: Modo Claro
-
 
 markdown_extensions:
   - pymdownx.emoji
@@ -46,4 +45,3 @@ markdown_extensions:
   - toc:
       permalink: true
   - attr_list
-
