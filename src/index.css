@@ -12,29 +12,26 @@ body {
   padding: 0;
   min-height: 100vh;
   width: 100vw;
-
-  overflow-y: hidden;
-  overflow-x: hidden;
-
+  overflow: hidden;
 }
 
 h1 {
   color: white;
   font-family: sans-serif;
+  margin-top: 0;
   margin-bottom: 20px;
 }
 
-.board {
+.tabuleiro {
   width: 636px; 
   height: 636px;
   position: relative;
-  
   border: 4px solid #FFFFFF;
   padding: 12px; 
   background-color: #0A1034;
 }
 
-.board::after {
+.tabuleiro::after {
   content: "";
   position: absolute;
   top: 212px;    
@@ -44,7 +41,7 @@ h1 {
   background-color: #0A1034; 
 }
 
-.grid-container {
+.container-grade {
   width: 600px;
   height: 600px;
   display: grid;
@@ -53,37 +50,13 @@ h1 {
   position: relative;
 }
 
-.cell {
+.celula {
   position: relative;
   width: 100px;
   height: 100px;
-  padding: 0; 
 }
 
-.carroVermelho {
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 6px;
-  right: 6px;
-  background-color: #E50914;
-  border-radius: 6px;
-  z-index: 2; 
-}
-
-.carroVermelho.horizontal.head {
-  right: -6px; 
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.carroVermelho.horizontal.tail {
-  left: -6px; 
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.cell::after {
+.celula::after {
   content: "";
   position: absolute;
   right: -4px;
@@ -94,7 +67,30 @@ h1 {
   z-index: 1;
 }
 
-.cell:nth-child(6n)::after,
-.cell:nth-child(n+31)::after {
+.celula:nth-child(6n)::after,
+.celula:nth-child(n+31)::after {
   display: none;
+}
+
+.container-veiculos {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.veiculo {
+  position: absolute;
+  border-radius: 8px;
+  pointer-events: auto;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: grab;
+}
+
+.veiculo:active {
+  cursor: grabbing;
 }
