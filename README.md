@@ -1,63 +1,44 @@
-# Projeto de Algoritmos - Grupo 15
+# Rush Hour
 
-Repositório do primeiro trabalho da disciplina Projeto de Algoritmos (PA), ministrada pelo professor Maurício Serrano, na Universidade de Brasília (UnB).
-
-## Sobre o Projeto
-
-O projeto consiste no desenvolvimento de um solucionador do jogo Rush Hour, utilizando um tabuleiro 6 × 6. O objetivo é movimentar os veículos que bloqueiam o caminho do carro principal até que ele consiga alcançar a saída do tabuleiro. A aplicação permite jogar manualmente e também possui um Auto-Solver, que utiliza o algoritmo de busca heurística A* para encontrar uma solução automaticamente.
-
-## Protótipo Inicial (Figma)
-
-![Prototipo 1](./docs/img/figma_prototipo_1.jpeg)
-
-## Como funciona a dinâmica do jogo:
-
-Cada veículo pode se movimentar de acordo com sua orientação:
-
-Veículos horizontais podem se mover para a esquerda e direita;
-veículos verticais podem se mover para cima e baixo.
-
-Os veículos não podem ultrapassar os limites do tabuleiro nem ocupar uma célula já ocupada por outro veículo.
-
-Cada configuração do tabuleiro representa um estado do jogo. A partir desses estados, o algoritmo A* explora os movimentos possíveis até encontrar uma solução.
-
-Quando uma solução é encontrada, os movimentos podem ser apresentados de forma animada, permitindo acompanhar a resolução do desafio.
-
-## Tecnologias
-
-* **HTML**
-* **CSS**
-* **JavaScript**
-* **Git**
-* **GitHub**
-* **MkDocs**
+Jogo Rush Hour interativo desenvolvido em HTML, CSS e JavaScript, contando com geração automática de fases de dificuldade média e resolução com o algoritmo de busca A*.
 
 
-## Estrutura
+## Funcionalidades
+
+* **Geração Procedural:** Cria cenários aleatórios garantindo uma solução ótima entre **8 e 20 movimentos**.
+* **Solucionador A#:** Algoritmo de A* que calcula o menor caminho para a vitória e resolve o tabuleiro de forma automatizada.
+* **Restart de Fase:** Com o apertar de um botao a fase recomeça para voce tentar mais uma vez
+* **Contador de Movimentos:** Ao concluir um nivel voce vera quantos passos deu a mais doque o necessario.
+
+## Estrutura de Arquivos
 
 ```text
-G15_Grafos_PA-26.2/
-├── .github/
-│   └── workflows/
-├── docs/
-│   ├── img/
-│   │   └── rush-hour.png
-│   └── index.md
-├── src/
-│   ├── index.css
-│   ├── index.html
-│   └── script.js
-├── mkdocs.yml
-└── README.md
+src/
+├── index.html          # Estrutura e modal de vitória
+├── index.css           # Estilização da grade, veículos e modal
+└── script/
+    ├── config.js       # Constantes globais 
+    ├── controles.js    # Eventos de clique e navegação por teclado
+    ├── geradorFases.js # Algoritmo de geração e validação de dificuldade
+    ├── main.js         # Loop principal e gerenciamento de estado
+    ├── solverAStar.js  # Grafo e algoritmo de busca A*
+    ├── tabuleiro.js    # Gerenciamento da grade e estado dos veículos
+    └── veiculo.js      # Classe de modelo do veículo e movimentação
 ```
 
-## Documentação
+## Como Executar o Projeto
 
-A documentação completa do projeto está disponível no GitHub Pages.
+1. Instale a extensão **Live Server** do Vscode.
+2. Clique com o botão direito no arquivo `src/index.html`.
+3. Selecione **Open with Live Server**.
 
-Nela são apresentados detalhes sobre o desenvolvimento da aplicação, a representação dos estados, a geração de movimentos, a heurística e a implementação do algoritmo A*.
+Ou use **python3 -m http.server 8000** para abir um servidor
 
+## Como jogar
 
+1. Clique em qualquer veículo para selecioná-lo.
+2. Use as setas do teclado (←→↑↓) para deslizar o veículo selecionado.
+3. Leve o carro vermelho (principal) até a abertura do lado direito do tabuleiro para vencer a fase.
 
 ## Equipe
 
