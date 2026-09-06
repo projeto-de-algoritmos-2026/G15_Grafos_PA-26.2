@@ -8,6 +8,9 @@ site_name: Grafos_PA-26.2
 
 nav:
   - Home: index.md
+  - Inspiração: inspiração.md
+  - Algoritmo A*: algoritmo.md
+  - Demonstração: demonstração.md
 
 theme:
   name: material
