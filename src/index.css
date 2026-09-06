@@ -13,13 +13,61 @@ body {
   min-height: 100vh;
   width: 100vw;
   overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
 }
 
 h1 {
-  color: white;
-  font-family: sans-serif;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+.painel-controle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 636px;
+  margin-bottom: 15px;
+}
+
+.hud-movimentos {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.botoes-acao {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2A325D;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  background-color: #3C467B;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-destaque {
+  background-color: #E50914;
+}
+
+.btn-destaque:hover {
+  background-color: #FF1E27;
 }
 
 .tabuleiro {
@@ -91,11 +139,90 @@ h1 {
   cursor: grab;
 }
 
-.veiculo:active {
-  cursor: grabbing;
-}
-
 .veiculo.selecionado {
   outline: 3px solid #FFFFFF;
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.oculto {
+  display: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-card {
+  background-color: #121A48;
+  border: 2px solid #FFFFFF;
+  border-radius: 12px;
+  padding: 30px;
+  width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.modal-card h2 {
+  margin-top: 0;
+  color: #2ECC71;
+  font-size: 1.8rem;
+}
+
+.modal-card p {
+  color: #CCCCCC;
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+.estatisticas {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-box.destaque {
+  border-color: #F1C40F;
+  background: rgba(241, 196, 15, 0.1);
+}
+
+.stat-rotulo {
+  font-size: 0.75rem;
+  color: #AAAAAA;
+}
+
+.stat-valor {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }

@@ -1,12 +1,24 @@
 import { TAMANHO_GRADE } from './config.js';
 import { Veiculo } from './veiculo.js';
 
-export const veiculos = [
-  new Veiculo("carro-principal", 2, "H", 1, 2, "#E50914"),
-  new Veiculo("caminhao-azul", 3, "V", 0, 0, "#0088FF"),
-  new Veiculo("carro-verde", 2, "V", 3, 1, "#2ECC71"),
-  new Veiculo("carro-amarelo", 2, "H", 2, 4, "#F1C40F")
-];
+export const veiculos = [];
+
+let estadoInicialFase = [];
+
+export function salvarEstadoInicial() {
+  estadoInicialFase = veiculos.map(v => new Veiculo(v.id, v.tamanho, v.orientacao, v.x, v.y, v.cor));
+}
+
+export function reiniciarParaEstadoInicial() {
+  veiculos.length = 0;
+  veiculos.push(...estadoInicialFase.map(v => new Veiculo(v.id, v.tamanho, v.orientacao, v.x, v.y, v.cor)));
+}
+
+export function atualizarVeiculos(novosVeiculos) {
+  veiculos.length = 0;
+  veiculos.push(...novosVeiculos);
+  salvarEstadoInicial();
+}
 
 export function celulaOcupada(x, y, idIgnorado = null) {
   if (x < 0 || x >= TAMANHO_GRADE || y < 0 || y >= TAMANHO_GRADE) return true;
@@ -24,6 +36,7 @@ export function celulaOcupada(x, y, idIgnorado = null) {
 
 export function gerarGrade() {
   const containerGrade = document.querySelector(".container-grade");
+  if (!containerGrade) return;
   containerGrade.innerHTML = "";
   for (let i = 0; i < TAMANHO_GRADE * TAMANHO_GRADE; i++) {
     const celula = document.createElement("div");
@@ -34,6 +47,7 @@ export function gerarGrade() {
 
 export function renderizarVeiculos(onSelectCallback) {
   const containerVeiculos = document.querySelector(".container-veiculos");
+  if (!containerVeiculos) return;
   containerVeiculos.innerHTML = "";
   veiculos.forEach(veiculo => {
     containerVeiculos.appendChild(veiculo.criarElementoDOM(onSelectCallback));

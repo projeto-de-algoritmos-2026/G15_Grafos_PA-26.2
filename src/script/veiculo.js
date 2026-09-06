@@ -29,25 +29,32 @@ export class Veiculo {
     }
   }
 
-  mover(passos, celulaOcupadaFn) {
-    if (!this.podeMover(passos, celulaOcupadaFn)) return;
+  mover(passos, celulaOcupadaFn, onMoveCallback, onVitoriaCallback) {
+    if (!this.podeMover(passos, celulaOcupadaFn)) return false;
 
-    this.orientacao === "H" ? this.x += passos : this.y += passos;
+    if (this.orientacao === "H") {
+      this.x += passos;
+    } else {
+      this.y += passos;
+    }
 
     this.atualizarPosicaoDOM();
-    this.verificarVitoria();
+
+    if (onMoveCallback) onMoveCallback();
+
+    if (this.id === "carro-principal" && this.x === 4) {
+      if (onVitoriaCallback) {
+        setTimeout(() => onVitoriaCallback(), 200);
+      }
+    }
+
+    return true;
   }
 
   atualizarPosicaoDOM() {
     if (!this.elemento) return;
     this.elemento.style.left = `${(this.x * TAMANHO_CELULA) + RECUO}px`;
     this.elemento.style.top = `${(this.y * TAMANHO_CELULA) + RECUO}px`;
-  }
-
-  verificarVitoria() {
-    if (this.id === "carro-principal" && this.x === 4) {
-      setTimeout(() => alert("Você venceu!"), 200);
-    }
   }
 
   criarElementoDOM(onSelectCallback) {

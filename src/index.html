@@ -1,22 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rush Hour</title>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
     <h1>Rush Hour</h1>
 
-    <button id="btn-resolver" style="margin-bottom: 15px; padding: 10px 20px; font-weight: bold; cursor: pointer;">
-        Resolver com A*
-    </button>
+    <div class="painel-controle">
+      <div class="hud-movimentos">
+        <span>Movimentos: <strong id="contador-movimentos">0</strong></span>
+      </div>
+      <div class="botoes-acao">
+        <button id="btn-nova-fase" class="btn">Nova Fase</button>
+        <button id="btn-reiniciar" class="btn">Reiniciar</button>
+        <button id="btn-resolver" class="btn btn-destaque">Resolver com A*</button>
+      </div>
+    </div>
 
     <div class="tabuleiro">
         <div class="container-grade"></div>
         <div class="container-veiculos"></div>
+    </div>
+
+    <div id="modal-vitoria" class="modal-overlay oculto">
+      <div class="modal-card">
+        <h2>Fase Concluída!</h2>
+        <p>Você conseguiu tirar o carro principal do congestionamento.</p>
+        
+        <div class="estatisticas">
+          <div class="stat-box">
+            <span class="stat-rotulo">Seus Movimentos</span>
+            <span id="stat-player" class="stat-valor">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-rotulo">Mínimo Perfeito (A*)</span>
+            <span id="stat-minimo" class="stat-valor">0</span>
+          </div>
+          <div class="stat-box destaque">
+            <span class="stat-rotulo">Eficiência</span>
+            <span id="stat-eficiencia" class="stat-valor">100%</span>
+          </div>
+        </div>
+
+        <div class="modal-botoes">
+          <button id="modal-btn-reiniciar" class="btn">Tentar Novamente</button>
+          <button id="modal-btn-proxima" class="btn btn-destaque">Próxima Fase</button>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="./script/main.js"></script>

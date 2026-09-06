@@ -14,7 +14,7 @@ export function selecionarVeiculo(veiculo) {
   veiculo.elemento.classList.add("selecionado");
 }
 
-export function inicializarControles() {
+export function inicializarControles(onMoveCallback, onVitoriaCallback) {
   document.addEventListener("click", () => {
     document.querySelectorAll(".veiculo").forEach(el => el.classList.remove("selecionado"));
     veiculoSelecionado = null;
@@ -24,11 +24,11 @@ export function inicializarControles() {
     if (!veiculoSelecionado) return;
 
     if (veiculoSelecionado.orientacao === "H") {
-      if (e.key === "ArrowLeft") veiculoSelecionado.mover(-1, celulaOcupada);
-      if (e.key === "ArrowRight") veiculoSelecionado.mover(1, celulaOcupada);
+      if (e.key === "ArrowLeft") veiculoSelecionado.mover(-1, celulaOcupada, onMoveCallback, onVitoriaCallback);
+      if (e.key === "ArrowRight") veiculoSelecionado.mover(1, celulaOcupada, onMoveCallback, onVitoriaCallback);
     } else if (veiculoSelecionado.orientacao === "V") {
-      if (e.key === "ArrowUp") veiculoSelecionado.mover(-1, celulaOcupada);
-      if (e.key === "ArrowDown") veiculoSelecionado.mover(1, celulaOcupada);
+      if (e.key === "ArrowUp") veiculoSelecionado.mover(-1, celulaOcupada, onMoveCallback, onVitoriaCallback);
+      if (e.key === "ArrowDown") veiculoSelecionado.mover(1, celulaOcupada, onMoveCallback, onVitoriaCallback);
     }
   });
 }
