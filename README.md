@@ -2,7 +2,7 @@
 
 Jogo Rush Hour interativo desenvolvido em HTML, CSS e JavaScript, contando com geração automática de fases de dificuldade média e resolução com o algoritmo de busca A*.
 
-![Jogo finalizado](./img/jogo.png)
+![Jogo finalizado](./docs/img/jogo.png)
 
 ## Funcionalidades
 
